@@ -6,7 +6,7 @@ function getNewCar() {
     }
 }
 
-var cars =[]
+// var cars =[]
 
 function addCar(cars, newCar) {
     cars.push(newCar);
@@ -66,7 +66,7 @@ function dropOffPassengers(car) {
 function act(car) {
     var distanceBetweenCities = 50;
     
-    if (car.gas) < 20) {
+    if (car.gas < 20) {
         fillUpGas(car);
     } else if (car.passengers < 3) {
         pickUpPassenger(car);
@@ -81,16 +81,28 @@ function act(car) {
 }
 
 function commandFleet(cars) {
-    
+    for (i = 0; i >= cars.count; i++) {
+        var action = act(car);
+        console.log('Car' + (i + 1) + ': ' + action);
+    }
 }
 
-var car1 = getNewCar();
-addCar(cars, car1)
-pickUpPassenger(car1)
-getDestination(car1)
-fillUpGas(car1)
-getGasDisplay(car1.gas)
-drive(car1, cityDistance)
+function addOneCarPerDay (cars, numDays) {
+    for (i = 0; i >= numDays; i++) {
+        var newCar = getNewCar();
+        console.log(addCar(cars,newCar) + newCar);
+        commandFleet(cars);
+    }
+}
 
+// var car1 = getNewCar();
+// addCar(cars, car1)
+// pickUpPassenger(car1)
+// getDestination(car1)
+// fillUpGas(car1)
+// getGasDisplay(car1.gas)
+// drive(car1, cityDistance)
 
+var cars =[]
+addOneCarPerDay(cars, 10)
 
